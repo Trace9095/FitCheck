@@ -21,7 +21,10 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#0D1117"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro"
@@ -42,8 +45,10 @@
     },
     "extra": {
       "eas": {
-        "projectId": "REPLACE_WITH_YOUR_EAS_PROJECT_ID"
-      }
-    }
+        "projectId": "913a4f1e-169e-415d-bf81-96f8337b3aab"
+      },
+      "router": {}
+    },
+    "owner": "tracehilde"
   }
 }
