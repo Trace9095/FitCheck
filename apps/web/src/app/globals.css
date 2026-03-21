@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Epic AI Brand Colors */
+  --color-background: #0D1117;
+  --color-foreground: #E6EDF3;
+  --color-gold: #D4A853;
+  --color-gold-light: #E8C97A;
+  --color-gold-dark: #B8923F;
+  --color-surface: #161B22;
+  --color-surface-hover: #1C2333;
+  --color-border: #30363D;
+  --color-muted: #8B949E;
+  --color-destructive: #F85149;
+  --color-success: #3FB950;
+  --color-warning: #E3B341;
+
+  /* shadcn/ui CSS variable aliases */
+  --color-card: var(--color-surface);
+  --color-card-foreground: var(--color-foreground);
+  --color-popover: var(--color-surface);
+  --color-popover-foreground: var(--color-foreground);
+  --color-primary: var(--color-gold);
+  --color-primary-foreground: #0D1117;
+  --color-secondary: var(--color-surface-hover);
+  --color-secondary-foreground: var(--color-foreground);
+  --color-accent: var(--color-surface-hover);
+  --color-accent-foreground: var(--color-foreground);
+  --color-input: var(--color-surface-hover);
+  --color-ring: var(--color-gold);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "Cascadia Code", monospace;
+
+  /* Border radius */
+  --radius: 0.5rem;
+}
+
+/* Base styles */
+* {
+  border-color: theme(--color-border);
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: theme(--color-background);
+  color: theme(--color-foreground);
+  font-family: theme(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gold accent utility */
+.text-gold {
+  color: theme(--color-gold);
+}
+
+.bg-gold {
+  background-color: theme(--color-gold);
+}
+
+.border-gold {
+  border-color: theme(--color-gold);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid theme(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme(--color-muted);
+}

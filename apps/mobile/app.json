@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Fit Check",
+    "slug": "fitcheck",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "fitcheck",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0D1117",
+    "splash": {
+      "backgroundColor": "#0D1117",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.epicai.fitcheck",
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.epicai.fitcheck",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0D1117"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Fit Check to access your photos to post outfits.",
+          "cameraPermission": "Allow Fit Check to use your camera to capture outfit photos."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "REPLACE_WITH_YOUR_EAS_PROJECT_ID"
+      }
+    }
+  }
+}

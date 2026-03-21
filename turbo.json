@@ -1,0 +1,28 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "tasks": {
+    "build": {
+      "description": "Build all apps and packages",
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "dev": {
+      "description": "Start development server",
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "description": "Lint source files",
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "description": "TypeScript type checking",
+      "dependsOn": ["^build"]
+    },
+    "clean": {
+      "description": "Remove build artifacts",
+      "cache": false
+    }
+  }
+}
