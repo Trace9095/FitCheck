@@ -49,6 +49,12 @@
       },
       "router": {}
     },
-    "owner": "tracehilde"
+    "owner": "tracehilde",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/913a4f1e-169e-415d-bf81-96f8337b3aab"
+    }
   }
 }
