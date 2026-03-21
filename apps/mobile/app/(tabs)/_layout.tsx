@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { Tabs, Redirect } from 'expo-router'
 import { getStoredSession } from '../../lib/storage'
 
-// ─── Simple icon components (no lucide-react-native needed) ───────────────
+// ─── Simple icon components ────────────────────────────────────────────────
 
 function GridIcon({ color }: { color: string }) {
   return (
