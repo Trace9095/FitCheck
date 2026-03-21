@@ -1,5 +1,4 @@
 import type { NextConfig } from 'next'
-import { headers } from 'next/headers'
 
 const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
@@ -29,9 +28,7 @@ const securityHeaders = [
   },
 ]
 
-async function getHeaders() {
-  const headersList = await headers()
-  void headersList
+function getHeaders() {
   return [{ source: '/(.*)', headers: securityHeaders }]
 }
 
