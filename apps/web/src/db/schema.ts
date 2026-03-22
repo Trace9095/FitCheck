@@ -25,6 +25,7 @@ export const users = pgTable('users', {
   bio: text('bio'),
   stripeCustomerId: text('stripe_customer_id').unique(),
   isAdmin: boolean('is_admin').notNull().default(false),
+  passwordHash: text('password_hash'),
   dailyPostCount: integer('daily_post_count').notNull().default(0),
   dailyPostDate: timestamp('daily_post_date'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
