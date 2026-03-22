@@ -1,9 +1,10 @@
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
+import { RevenueCatProvider } from '../lib/revenuecat'
 
 export default function RootLayout() {
   return (
-    <>
+    <RevenueCatProvider>
       <StatusBar style="light" backgroundColor="#0D1117" />
       <Stack
         screenOptions={{
@@ -17,7 +18,8 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="paywall" options={{ title: 'Go Pro', presentation: 'modal' }} />
       </Stack>
-    </>
+    </RevenueCatProvider>
   )
 }
