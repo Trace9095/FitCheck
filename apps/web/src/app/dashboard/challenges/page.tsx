@@ -25,6 +25,7 @@ export default function DashboardChallengesPage() {
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
   const [isPending, startTransition] = useTransition()
+  const [createError, setCreateError] = useState('')
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -36,9 +37,18 @@ export default function DashboardChallengesPage() {
 
   async function load() {
     setLoading(true)
-    const res = await fetch('/api/admin/challenges')
-    if (res.ok) setChallenges(await res.json())
-    setLoading(false)
+    try {
+      const res = await fetch('/api/admin/challenges')
+      if (res.ok) {
+        const rows = await res.json() as Challenge[]
+        // Postgres COUNT aggregates come back as strings at runtime — cast to number
+        setChallenges(rows.map((c) => ({ ...c, entryCount: Number(c.entryCount) })))
+      }
+    } catch {
+      // Network error — leave existing list
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => { void load() }, [])
@@ -49,16 +59,24 @@ export default function DashboardChallengesPage() {
 
   async function handleCreate(e: React.FormEvent) {
     e.preventDefault()
+    setCreateError('')
     startTransition(async () => {
-      const res = await fetch('/api/admin/challenges', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      if (res.ok) {
-        setShowForm(false)
-        setForm({ title: '', description: '', theme: '', prizeDescription: '', startDate: '', endDate: '' })
-        await load()
+      try {
+        const res = await fetch('/api/admin/challenges', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(form),
+        })
+        if (res.ok) {
+          setShowForm(false)
+          setForm({ title: '', description: '', theme: '', prizeDescription: '', startDate: '', endDate: '' })
+          await load()
+        } else {
+          const data = await res.json() as { error?: string }
+          setCreateError(data.error ?? 'Failed to create challenge.')
+        }
+      } catch {
+        setCreateError('Network error. Try again.')
       }
     })
   }
@@ -191,6 +209,11 @@ export default function DashboardChallengesPage() {
                   />
                 </div>
               </div>
+              {createError && (
+                <p className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-2 text-sm text-destructive">
+                  {createError}
+                </p>
+              )}
               <div className="flex gap-3">
                 <button
                   type="submit"

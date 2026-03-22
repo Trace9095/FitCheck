@@ -66,7 +66,7 @@ export function AppNav({ userEmail }: AppNavProps) {
               {handle}
             </Link>
             <button
-              onClick={handleLogout}
+              onClick={() => void handleLogout()}
               className="hidden min-h-[44px] items-center gap-2 rounded-lg px-3 text-sm text-muted hover:text-foreground md:flex"
             >
               <LogOut className="h-4 w-4" />
@@ -97,7 +97,7 @@ export function AppNav({ userEmail }: AppNavProps) {
               </Link>
             ))}
             <button
-              onClick={handleLogout}
+              onClick={() => void handleLogout()}
               className="mt-2 flex min-h-[44px] w-full items-center gap-3 rounded-lg border-t border-border px-3 pt-2 text-sm text-muted"
             >
               <LogOut className="h-4 w-4" />

@@ -4,6 +4,7 @@ import { getSession, isAdmin } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { users, outfits, ratings, subscriptions, challenges } from '@/db/schema'
 import { eq, sql, desc } from 'drizzle-orm'
+import Link from 'next/link'
 import {
   LayoutDashboard,
   Users,
@@ -68,10 +69,10 @@ export default async function AdminPage() {
           <span className="text-lg font-bold text-gold">Admin</span>
         </div>
         <nav className="flex-1 space-y-1 p-4" aria-label="Admin navigation">
-          <NavItem icon={<LayoutDashboard className="h-4 w-4" />} label="Dashboard" active />
-          <NavItem icon={<TrendingUp className="h-4 w-4" />} label="Analytics" />
-          <NavItem icon={<Users className="h-4 w-4" />} label="Users" />
-          <NavItem icon={<Settings className="h-4 w-4" />} label="Settings" />
+          <NavItem icon={<LayoutDashboard className="h-4 w-4" />} label="Dashboard" href="/dashboard" active />
+          <NavItem icon={<TrendingUp className="h-4 w-4" />} label="Analytics" href="/dashboard" />
+          <NavItem icon={<Users className="h-4 w-4" />} label="Users" href="/dashboard/users" />
+          <NavItem icon={<Settings className="h-4 w-4" />} label="Settings" href="/dashboard" />
         </nav>
         <div className="border-t border-border p-4">
           <form action="/api/auth/logout" method="POST">
@@ -141,14 +142,17 @@ export default async function AdminPage() {
 function NavItem({
   icon,
   label,
+  href,
   active = false,
 }: {
   icon: React.ReactNode
   label: string
+  href: string
   active?: boolean
 }) {
   return (
-    <button
+    <Link
+      href={href}
       className={`flex min-h-[44px] w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
         active
           ? 'bg-surface-hover text-gold'
@@ -157,6 +161,6 @@ function NavItem({
     >
       {icon}
       {label}
-    </button>
+    </Link>
   )
 }

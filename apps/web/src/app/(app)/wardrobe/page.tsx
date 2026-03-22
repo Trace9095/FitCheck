@@ -28,6 +28,7 @@ export default function WardrobePage() {
   const [tags, setTags] = useState('')
   const [notes, setNotes] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [addError, setAddError] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
 
   async function loadItems() {
@@ -49,24 +50,41 @@ export default function WardrobePage() {
     e.preventDefault()
     if (!file || !category) return
     setSubmitting(true)
+    setAddError('')
 
-    const formData = new FormData()
-    formData.append('file', file)
-    const uploadRes = await fetch('/api/upload', { method: 'POST', body: formData })
-    const uploadData = await uploadRes.json()
+    try {
+      const formData = new FormData()
+      formData.append('file', file)
+      const uploadRes = await fetch('/api/upload', { method: 'POST', body: formData })
+      const uploadData = await uploadRes.json()
 
-    if (!uploadRes.ok) { setSubmitting(false); return }
+      if (!uploadRes.ok) {
+        setAddError(uploadData.error ?? 'Upload failed. Try again.')
+        setSubmitting(false)
+        return
+      }
 
-    await fetch('/api/wardrobe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ imageUrl: uploadData.data.url, category, tags: tags || undefined, notes: notes || undefined }),
-    })
+      const postRes = await fetch('/api/wardrobe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageUrl: uploadData.data.url, category, tags: tags || undefined, notes: notes || undefined }),
+      })
+      const postData = await postRes.json()
 
-    setAdding(false)
-    setPreview(null); setFile(null); setCategory(''); setTags(''); setNotes('')
-    setSubmitting(false)
-    void loadItems()
+      if (!postRes.ok) {
+        setAddError(postData.error ?? 'Failed to save item. Try again.')
+        setSubmitting(false)
+        return
+      }
+
+      setAdding(false)
+      setPreview(null); setFile(null); setCategory(''); setTags(''); setNotes(''); setAddError('')
+      setSubmitting(false)
+      void loadItems()
+    } catch {
+      setAddError('Something went wrong. Check your connection.')
+      setSubmitting(false)
+    }
   }
 
   const filtered = filterCat === 'All' ? items : items.filter((i) => i.category === filterCat)
@@ -167,6 +185,12 @@ export default function WardrobePage() {
               </div>
 
               <input value={tags} onChange={(e) => setTags(e.target.value)} placeholder="Tags (optional, e.g. vintage, Nike)" className="rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder-muted outline-none focus:border-gold" />
+
+              {addError && (
+                <p className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-2 text-sm text-destructive">
+                  {addError}
+                </p>
+              )}
 
               <button type="submit" disabled={!file || !category || submitting}
                 className="flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-gold text-sm font-bold text-background disabled:opacity-50">

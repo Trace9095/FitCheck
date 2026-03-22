@@ -35,17 +35,22 @@ export default function FeedPage() {
 
   const load = useCallback(async (cat: string, pg: number, reset: boolean) => {
     setLoading(true)
-    const params = new URLSearchParams({ page: String(pg) })
-    if (cat !== 'All') params.set('category', cat)
-    const res = await fetch(`/api/outfits?${params}`)
-    const json = await res.json()
-    if (reset) {
-      setOutfits(json.data?.items ?? [])
-    } else {
-      setOutfits((prev) => [...prev, ...(json.data?.items ?? [])])
+    try {
+      const params = new URLSearchParams({ page: String(pg) })
+      if (cat !== 'All') params.set('category', cat)
+      const res = await fetch(`/api/outfits?${params}`)
+      const json = await res.json()
+      if (reset) {
+        setOutfits(json.data?.items ?? [])
+      } else {
+        setOutfits((prev) => [...prev, ...(json.data?.items ?? [])])
+      }
+      setHasMore(json.data?.hasMore ?? false)
+    } catch {
+      // Network error — leave existing outfits, just stop loading
+    } finally {
+      setLoading(false)
     }
-    setHasMore(json.data?.hasMore ?? false)
-    setLoading(false)
   }, [])
 
   useEffect(() => {
