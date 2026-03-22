@@ -8,6 +8,7 @@ const navLinks = [
   { href: '/feed', label: 'Browse' },
   { href: '/rate', label: 'Rate Fits' },
   { href: '/challenges', label: 'Challenges' },
+  { href: '/blog', label: 'Blog' },
 ]
 
 export function Nav() {
