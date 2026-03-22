@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: APP_NAME,
     description: APP_DESCRIPTION,
     url: APP_URL,
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Fit Check — Post your OOTD, get anonymous style ratings' }],
   },
   twitter: {
     card: 'summary_large_image',
