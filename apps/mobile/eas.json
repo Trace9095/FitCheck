@@ -37,9 +37,6 @@
       "android": {
         "buildType": "app-bundle"
       },
-      "ios": {
-        "enterpriseProvisioning": "adhoc"
-      },
       "env": {
         "APP_ENV": "production"
       },
@@ -49,7 +46,7 @@
   "submit": {
     "production": {
       "ios": {
-        "appleId": "REPLACE_WITH_APPLE_ID",
+        "appleId": "CEO@epicai.ai",
         "ascAppId": "REPLACE_WITH_APP_STORE_CONNECT_APP_ID",
         "appleTeamId": "MPH83385EQ"
       },
