@@ -8,9 +8,11 @@ export function Footer() {
         <div className="flex flex-col items-start gap-8 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="max-w-xs">
-            <div className="mb-2 flex items-center gap-2 text-lg font-bold text-gold">
-              <Shirt className="h-5 w-5" strokeWidth={2.5} aria-hidden="true" />
-              Fit Check
+            <div className="mb-2 flex items-center gap-2.5 text-lg font-bold text-foreground">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gold">
+                <Shirt className="h-4 w-4 text-background" strokeWidth={2.5} aria-hidden="true" />
+              </div>
+              Fit <span className="text-gold">Check</span>
             </div>
             <p className="text-sm text-muted">
               Rate your fit. Find your style. Post your OOTD and get real feedback from the community.

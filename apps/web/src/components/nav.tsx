@@ -20,11 +20,15 @@ export function Nav() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold text-gold"
+          className="flex items-center gap-2.5 text-lg font-bold text-foreground"
           aria-label="Fit Check home"
         >
-          <Shirt className="h-5 w-5 text-gold" strokeWidth={2.5} aria-hidden="true" />
-          Fit Check
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gold">
+            <Shirt className="h-4 w-4 text-background" strokeWidth={2.5} aria-hidden="true" />
+          </div>
+          <span>
+            Fit <span className="text-gold">Check</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
