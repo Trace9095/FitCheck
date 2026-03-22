@@ -49,7 +49,7 @@ export const TIER = {
 // Replace with real Stripe price IDs after creating in dashboard
 
 export const STRIPE_PRICES = {
-  PRO_MONTHLY: 'price_fitcheck_pro_monthly',
+  PRO_MONTHLY: 'price_1TDZL1PMHtPyRedn0nuCu0S4',
   STYLIST_ONETIME: 'price_fitcheck_stylist',
 } as const
 
