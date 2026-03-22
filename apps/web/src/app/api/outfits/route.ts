@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { getSession } from '@/lib/auth'
 import { db } from '@/lib/db'
-import { outfits, users } from '@/db/schema'
+import { outfits, users, subscriptions } from '@/db/schema'
 import { eq, desc, and, sql } from 'drizzle-orm'
 import { z } from 'zod'
 
@@ -82,7 +82,19 @@ export async function POST(request: NextRequest) {
     const today = new Date()
     today.setHours(0, 0, 0, 0)
 
-    const isProUser = false // TODO: check subscriptions table
+    // Check active Pro subscription
+    const activeSub = await db
+      .select({ id: subscriptions.id })
+      .from(subscriptions)
+      .where(
+        and(
+          eq(subscriptions.userId, session.userId),
+          sql`${subscriptions.status} IN ('active', 'trialing')`
+        )
+      )
+      .limit(1)
+      .then((r) => r[0])
+    const isProUser = Boolean(activeSub)
 
     const lastPostDate = user.dailyPostDate ? new Date(user.dailyPostDate) : null
     const isSameDay = lastPostDate && lastPostDate >= today

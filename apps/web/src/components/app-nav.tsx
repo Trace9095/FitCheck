@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Shirt, Grid3X3, Zap, Camera, Trophy, User, LogOut, Menu, X, ShoppingBag } from 'lucide-react'
+import { Shirt, Grid3X3, Zap, Camera, Trophy, User, LogOut, Menu, X, ShoppingBag, Sparkles } from 'lucide-react'
 
 const navItems = [
   { href: '/feed', icon: Grid3X3, label: 'Feed' },
@@ -11,6 +11,7 @@ const navItems = [
   { href: '/post', icon: Camera, label: 'Post' },
   { href: '/challenges', icon: Trophy, label: 'Challenges' },
   { href: '/wardrobe', icon: ShoppingBag, label: 'Wardrobe' },
+  { href: '/ask', icon: Sparkles, label: 'Ask AI' },
 ]
 
 interface AppNavProps {
