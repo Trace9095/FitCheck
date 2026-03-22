@@ -1,0 +1,44 @@
+{
+  "app_name": "Fit Check: Outfit Ratings",
+  "subtitle": "Style Feedback from the Community",
+  "bundle_id": "com.epicai.fitcheck",
+  "version": "1.0.0",
+  "build_number": "1",
+  "primary_category": "Lifestyle",
+  "secondary_category": "Social Networking",
+  "age_rating": "4+",
+  "content_rights": {
+    "contains_third_party_content": false
+  },
+  "privacy_policy_url": "https://fitcheckapp.com/privacy",
+  "support_url": "https://fitcheckapp.com/support",
+  "marketing_url": "https://fitcheckapp.com",
+  "locales": {
+    "en-US": {
+      "name": "Fit Check: Outfit Ratings",
+      "subtitle": "Style Feedback from the Community",
+      "keywords": "fit check,outfit rating,fashion,OOTD,style feedback,fashion community,clothing",
+      "description": "Fit Check is the app for people who care about what they wear — and want honest feedback before they walk out the door.\n\nYour mirror can't tell you if the fit actually works. Your friends are too polite. Your Instagram followers are too busy. Fit Check connects you with a community of style-forward people who give you real, fast, anonymous ratings on your outfits — so you know what's working and what's not before it matters.\n\nPost a fit, get rated:\n- Snap or upload an outfit photo\n- Add optional tags (occasion, aesthetic, budget range)\n- The community rates it across style, coordination, and occasion-appropriateness\n- See your ratings in real time as votes come in\n- Read comments from people who know what they're talking about\n\nRate other fits:\n- Swipe through a feed of community fits\n- Give a quick rating (1-10) or a detailed breakdown\n- Leave constructive feedback or a compliment\n- Build your reputation as a trusted voice in the community\n\nFit styles and aesthetics:\n- Streetwear\n- Business casual\n- Date night\n- Festival / concert\n- Athleisure\n- Old money / quiet luxury\n- Y2K and vintage\n- Coastal grandmother (yes, really)\n- Dark academia\n- Your own custom tags\n\nWardrobe builder:\n- Log your outfits over time\n- See your highest-rated looks\n- Track what pieces get the most compliments\n- Build a visual record of what actually works for you\n\nShop the look:\nTap any clothing item in a rated outfit to find similar pieces. Fit Check connects to major retailers so when you see a look you love, you can find something like it without the hours of searching.\n\nAnonymous by default:\nYou don't have to show your face. Post outfit photos cropped to the clothing, get ratings on the fit itself — not your appearance. Fit Check is about the clothes, not the body.\n\nCommunity standards:\nFit Check has a zero-tolerance policy for negative body commentary. Ratings are about style, coordination, and occasion fit — full stop. The moderation team removes anything that crosses that line.\n\nWhether you're building your style, prepping for a specific event, or just want validation that yes, that jacket does go with those pants — Fit Check gives you the community feedback loop that everyone wishes they had.\n\nDownload Fit Check. Get the feedback your mirror can't give you.",
+      "promotional_text": "Real outfit feedback from a style community. Post your fit, get honest ratings in minutes. Anonymous by default.",
+      "whats_new": "Fit Check v1.0 — honest outfit feedback from a real style community.\n\nLaunch features:\n- Fit post and rating system (1-10 + detailed breakdown)\n- 20+ aesthetic tags for categorizing looks\n- Swipe-to-rate feed for the community\n- Wardrobe builder and rating history\n- Anonymous posting mode\n- Outfit comment threads\n- Shop-the-look links to major retailers\n\nStyle challenges, brand partnerships, and influencer verification coming in v1.1. Download and get your first fit rated.",
+      "screenshot_descriptions": [
+        "Screenshot 1: Post your fit, get honest ratings in minutes — Real community feedback before you commit to the look",
+        "Screenshot 2: Rate on style, coordination, and occasion fit — Structured feedback categories so ratings actually mean something",
+        "Screenshot 3: Every aesthetic has a home here — Streetwear to quiet luxury — the community covers every style",
+        "Screenshot 4: Anonymous by default — it's about the fit, not the face — Post cropped photos and get feedback on the clothing itself",
+        "Screenshot 5: Your wardrobe, rated and organized over time — See your highest-rated looks and track what actually works",
+        "Screenshot 6: See something you love? Shop similar pieces — Tap any item in a rated fit to find it at major retailers"
+      ]
+    }
+  },
+  "screenshots": {
+    "iphone_65": [
+      "screenshots/iphone/01_main.png",
+      "screenshots/iphone/02_feature.png",
+      "screenshots/iphone/03_feature.png",
+      "screenshots/iphone/04_feature.png",
+      "screenshots/iphone/05_feature.png",
+      "screenshots/iphone/06_share.png"
+    ]
+  }
+}
