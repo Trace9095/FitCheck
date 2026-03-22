@@ -1,7 +1,7 @@
 export const styles = {
   body: {
     backgroundColor: '#0D1117',
-    fontFamily: "'Geist', 'Inter', system-ui, -apple-system, sans-serif",
+    fontFamily: "Arial, Helvetica, sans-serif",
     margin: '0',
     padding: '0',
   } as const,
@@ -15,7 +15,7 @@ export const styles = {
     fontWeight: '700' as const,
     color: '#D4A853',
     margin: '0 0 32px',
-    letterSpacing: '-0.3px',
+    letterSpacing: '0',
   },
   heading: {
     fontSize: '24px',
@@ -23,7 +23,7 @@ export const styles = {
     color: '#E6EDF3',
     margin: '0 0 16px',
     lineHeight: '1.3',
-    letterSpacing: '-0.3px',
+    letterSpacing: '0',
   },
   bodyText: {
     fontSize: '15px',
@@ -34,7 +34,7 @@ export const styles = {
   button: {
     backgroundColor: '#D4A853',
     color: '#0D1117',
-    padding: '13px 28px',
+    padding: '14px 32px',
     borderRadius: '8px',
     fontWeight: '600' as const,
     fontSize: '14px',
