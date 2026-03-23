@@ -46,7 +46,8 @@
   "submit": {
     "production": {
       "ios": {
-        "appleId": "CEO@epicai.ai",
+        "appleId": "trace.hildebrand@gmail.com",
+        "ascApiKeyId": "TV7J3K73SF",
         "appleTeamId": "MPH83385EQ"
       },
       "android": {
