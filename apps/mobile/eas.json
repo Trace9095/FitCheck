@@ -47,7 +47,6 @@
     "production": {
       "ios": {
         "appleId": "CEO@epicai.ai",
-        "ascAppId": "REPLACE_WITH_APP_STORE_CONNECT_APP_ID",
         "appleTeamId": "MPH83385EQ"
       },
       "android": {
