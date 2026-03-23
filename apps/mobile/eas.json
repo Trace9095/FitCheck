@@ -47,7 +47,6 @@
     "production": {
       "ios": {
         "appleId": "trace.hildebrand@gmail.com",
-        "ascApiKeyId": "TV7J3K73SF",
         "appleTeamId": "MPH83385EQ"
       },
       "android": {
