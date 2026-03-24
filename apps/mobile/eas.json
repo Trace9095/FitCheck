@@ -47,7 +47,8 @@
     "production": {
       "ios": {
         "appleId": "trace.hildebrand@gmail.com",
-        "appleTeamId": "MPH83385EQ"
+        "appleTeamId": "MPH83385EQ",
+        "ascAppId": "6761031408"
       },
       "android": {
         "serviceAccountKeyPath": "./google-services-key.json",
