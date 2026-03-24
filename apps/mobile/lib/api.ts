@@ -13,7 +13,7 @@ import { getStoredSession } from './storage'
 // In development: your local Next.js server (use LAN IP, not localhost)
 // In production: your deployed Vercel URL
 const API_BASE_URL =
-  process.env['EXPO_PUBLIC_API_URL'] ?? 'http://192.168.1.100:3000'
+  process.env['EXPO_PUBLIC_API_URL'] ?? 'https://fit-check.vercel.app'
 // ──────────────────────────────────────────────────────────────────────────
 
 async function getAuthHeaders(): Promise<Record<string, string>> {
