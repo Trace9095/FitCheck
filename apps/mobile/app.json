@@ -7,7 +7,9 @@
     "scheme": "fitcheck",
     "userInterfaceStyle": "dark",
     "backgroundColor": "#0D1117",
+    "icon": "./assets/icon.png",
     "splash": {
+      "image": "./assets/splash.png",
       "backgroundColor": "#0D1117",
       "resizeMode": "contain"
     },
@@ -23,6 +25,7 @@
       "package": "com.epicai.fitcheck",
       "versionCode": 1,
       "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0D1117"
       },
       "permissions": [
