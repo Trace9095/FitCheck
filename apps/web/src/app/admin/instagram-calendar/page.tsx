@@ -13,7 +13,7 @@ export default function InstagramCalendarPage() {
     : instagramCalendar.posts.filter(p => p.status === filter)
 
   return (
-    <div style={{ background: BRAND_CONFIG.bgColor, minHeight: '100vh', padding: '40px 24px' }}>
+    <div style={{ background: BRAND_CONFIG.bgColor, minHeight: '100dvh', padding: '40px 24px' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto' }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 32 }}>
