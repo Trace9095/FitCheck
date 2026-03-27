@@ -96,7 +96,13 @@ cd apps/web && npx drizzle-kit push   # push schema to Neon
 | `apps/web/src/lib/stripe.ts` | Stripe client (lazy init) |
 | `apps/web/src/lib/email.ts` | Resend client (lazy init) |
 | `apps/web/src/db/schema.ts` | Database schema |
-| `apps/web/next.config.ts` | Security headers |
+| `apps/web/src/components/GoogleAnalytics.tsx` | GA4 Consent Mode v2 component |
+| `apps/web/src/components/ConsentAwareAnalytics.tsx` | Vercel Analytics consent gate |
+| `apps/web/src/lib/cookie-consent.ts` | 3-category cookie consent utility |
+| `apps/web/src/lib/analytics.ts` | SaaS event tracking (dual pipeline: Vercel + GA4) |
+| `apps/web/src/lib/analytics-server.ts` | GA4 Measurement Protocol (server-side purchase tracking) |
+| `apps/web/src/components/cookie-consent.tsx` | GDPR cookie consent banner |
+| `apps/web/next.config.ts` | Security headers + GA4 CSP |
 | `apps/mobile/lib/storage.ts` | SecureStore session management |
 | `packages/shared/src/types.ts` | Shared TypeScript types |
 | `packages/shared/src/constants.ts` | Brand colors, categories, routes, Stripe price IDs |
@@ -108,3 +114,4 @@ cd apps/web && npx drizzle-kit push   # push schema to Neon
 | Session | Date | Work Done |
 |---------|------|-----------|
 | S124 | 2026-03-20 | Initial build from epic-monorepo-starter template |
+| S143 | 2026-03-27 | GA4 analytics: Consent Mode v2, SaaS event tracking (15+ events), server-side Stripe purchase tracking via Measurement Protocol, cookie consent banner, CSP headers |

@@ -4,6 +4,7 @@ import { getStripe } from '@/lib/stripe'
 import { db } from '@/lib/db'
 import { users, subscriptions, orders } from '@/db/schema'
 import { eq } from 'drizzle-orm'
+import { sendGA4PurchaseEvent } from '@/lib/analytics-server'
 
 // IMPORTANT: Do NOT add JSON body parsing — Stripe requires the raw text body
 // for signature verification.
@@ -47,6 +48,15 @@ export async function POST(request: NextRequest) {
               typeof session.payment_intent === 'string' ? session.payment_intent : null,
             amount: session.amount_total ?? 0,
             status: 'completed',
+          })
+
+          // GA4 server-side purchase event
+          await sendGA4PurchaseEvent({
+            transactionId: session.id,
+            value: (session.amount_total ?? 0) / 100,
+            currency: session.currency ?? 'usd',
+            itemName: 'Stylist Analysis',
+            clientId: session.metadata?.ga_client_id,
           })
         }
       } else if (session.mode === 'subscription') {
@@ -120,6 +130,16 @@ export async function POST(request: NextRequest) {
         } else {
           await db.insert(subscriptions).values(subData)
         }
+
+        // GA4 server-side subscription purchase event
+        const subAmount = sub.items.data[0]?.price.unit_amount ?? 299
+        await sendGA4PurchaseEvent({
+          transactionId: sub.id,
+          value: subAmount / 100,
+          currency: sub.currency ?? 'usd',
+          itemName: 'Pro Subscription',
+          clientId: session.metadata?.ga_client_id,
+        })
       }
       break
     }
