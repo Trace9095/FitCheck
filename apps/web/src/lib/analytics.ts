@@ -17,7 +17,7 @@ import { track } from '@vercel/analytics'
 //   scroll_depth          — scroll milestone reached
 //   page_engagement       — time-on-page milestone
 
-function gaEvent(eventName: string, params?: Record<string, string | number | boolean>) {
+function gaEvent(eventName: string, params?: Record<string, unknown>) {
   if (typeof window === 'undefined') return
   const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
   if (gtag) {
